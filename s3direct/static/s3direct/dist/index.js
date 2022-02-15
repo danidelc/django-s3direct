@@ -2543,7 +2543,7 @@
                 i = "" === e.value ? "form" : "link";
             t.className = "s3direct " + i + "-active", n.addEventListener("click", E, !1), r.addEventListener("change", P, !1)
         };
-    console.log('mykey', n.object_key)
+    console.log('mykey', n)
     new MutationObserver((function(t) {
         [].forEach.call(document.querySelectorAll(".s3direct"), A)
     })).observe(document.body, {
