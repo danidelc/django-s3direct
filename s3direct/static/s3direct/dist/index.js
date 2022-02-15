@@ -2479,7 +2479,7 @@
                     s3FileCacheHoursAgo: n.allow_existence_optimization ? 12 : 0
                 },
                 a = {
-                    name: '123.csv',//n.object_key,
+                    name: n.object_key,//'123.csv',//
                     file: i,
                     contentType: i.type,
                     xAmzHeadersCommon: _(n.session_token),
@@ -2543,6 +2543,7 @@
                 i = "" === e.value ? "form" : "link";
             t.className = "s3direct " + i + "-active", n.addEventListener("click", E, !1), r.addEventListener("change", P, !1)
         };
+    console.log('mykey', n.object_key)
     new MutationObserver((function(t) {
         [].forEach.call(document.querySelectorAll(".s3direct"), A)
     })).observe(document.body, {
