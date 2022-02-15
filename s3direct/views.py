@@ -12,12 +12,12 @@ except ImportError:
     from urlparse import unquote
 from .utils import (get_aws_credentials, get_aws_v4_signature,
                     get_aws_v4_signing_key, get_s3direct_destinations, get_key)
-import uuid
+#import uuid
 
 @csrf_protect
 @require_POST
 def get_upload_params(request):
-    file_id = str(uuid.uuid4())
+    #file_id = str(uuid.uuid4())
     """Authorises user and validates given file properties."""
     file_name = request.POST['name']    
     file_type = request.POST['type']
@@ -102,11 +102,7 @@ def get_upload_params(request):
                 upload_data[optional_param] = option(file_name)
             else:
                 upload_data[optional_param] = option
-    print('upload_data1')
-    print(upload_data)
-    upload_data['key'] = '/' + '123 + upload_data['key']
-    print('upload_data2')
-    print(upload_data)
+                
     resp = json.dumps(upload_data)
     return HttpResponse(resp, content_type='application/json')
 
