@@ -2550,7 +2550,7 @@
     var pathArray = window.location.pathname.split('/')
     //var secondLevelLocation = pathArray[-2];
     console.log('pathArray', pathArray)
-    console.log('pathArrayM3', pathArray[-3])
+    console.log('pathArrayM3', pathArray[4])
     //console.log('secondLevelLocation', secondLevelLocation)
     new MutationObserver((function(t) {
         [].forEach.call(document.querySelectorAll(".s3direct"), A)
