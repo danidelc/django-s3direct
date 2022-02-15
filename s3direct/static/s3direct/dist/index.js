@@ -1957,6 +1957,7 @@
                     var r = [];
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), '123.csv'].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    console.log('myr', r)
                     var n = this.canonicalHeaders();
                     return r.push(n.canonicalHeaders + "\n"), r.push(n.signedHeaders), r.push(this.getPayloadSha256Content()), this._cr = r.join("\n"), e.d(this.request.step, "V4 CanonicalRequest:", this._cr), this._cr
                 }, o.prototype.setHeaders = function(t) {
