@@ -17,8 +17,10 @@ import uuid
 @csrf_protect
 @require_POST
 def get_upload_params(request):
+    file_id = str(uuid.uuid4())
     """Authorises user and validates given file properties."""
-    file_name = request.POST['name']
+    #file_name = request.POST['name']
+    file_name = file_id#request.POST['name']
     file_type = request.POST['type']
     file_size = int(request.POST['size'])
 
@@ -71,8 +73,9 @@ def get_upload_params(request):
         resp = json.dumps({'error': 'AWS credentials config missing.'})
         return HttpResponseServerError(resp, content_type='application/json')
 
+    
     upload_data = {
-        'object_key': str(uuid.uuid4()),#get_key(key, file_name, dest),
+        'object_key': file_id,#get_key(key, file_name, dest),
         'access_key_id':
         aws_credentials.access_key,
         'session_token':
