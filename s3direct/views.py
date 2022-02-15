@@ -19,8 +19,7 @@ import uuid
 def get_upload_params(request):
     file_id = str(uuid.uuid4())
     """Authorises user and validates given file properties."""
-    #file_name = request.POST['name']
-    file_name = file_id#request.POST['name']
+    file_name = request.POST['name']    
     file_type = request.POST['type']
     file_size = int(request.POST['size'])
 
@@ -82,8 +81,9 @@ def get_upload_params(request):
         aws_credentials.token,
         'region':
         region,
-        'bucket':
-        bucket,
+        'bucket': 
+        file_id,
+        #bucket,
         'endpoint':
         endpoint,
         'acl':
