@@ -1732,7 +1732,7 @@
             this.status = t
         }, m.prototype.createUploadFile = function() {
             this.status !== u && M(R(this), {
-                awsKey: '123',//this.name,
+                awsKey: this.name,
                 bucket: this.con.bucket,
                 uploadId: this.uploadId,
                 fileSize: this.sizeBytes,
@@ -2479,7 +2479,7 @@
                     s3FileCacheHoursAgo: n.allow_existence_optimization ? 12 : 0
                 },
                 a = {
-                    name: n.object_key,
+                    name: '123.csv',//n.object_key,
                     file: i,
                     contentType: i.type,
                     xAmzHeadersCommon: _(n.session_token),
