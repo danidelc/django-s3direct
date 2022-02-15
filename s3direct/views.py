@@ -12,7 +12,7 @@ except ImportError:
     from urlparse import unquote
 from .utils import (get_aws_credentials, get_aws_v4_signature,
                     get_aws_v4_signing_key, get_s3direct_destinations, get_key)
-
+import uuid
 
 @csrf_protect
 @require_POST
@@ -72,8 +72,7 @@ def get_upload_params(request):
         return HttpResponseServerError(resp, content_type='application/json')
 
     upload_data = {
-        'object_key':
-        get_key(key, file_name, dest),
+        'object_key': str(uuid.uuid4()),#get_key(key, file_name, dest),
         'access_key_id':
         aws_credentials.access_key,
         'session_token':
