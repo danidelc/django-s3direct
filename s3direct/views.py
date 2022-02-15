@@ -104,7 +104,7 @@ def get_upload_params(request):
                 upload_data[optional_param] = option
     print('upload_data1')
     print(upload_data)
-    upload_data['key'] = '/' + file_id + upload_data['key']
+    upload_data['key'] = '/' + '123 + upload_data['key']
     print('upload_data2')
     print(upload_data)
     resp = json.dumps(upload_data)
