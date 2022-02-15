@@ -1955,10 +1955,11 @@
                 }, o.prototype.canonicalRequest = function() {
                     if (void 0 !== this._cr) return this._cr;
                     var r = [];
+                    // mod
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
-                    r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), '123.csv', this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
-                    //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), '123.csv'].join("")).pathname), r.push(this.canonicalQueryString() || "");
-                    console.log('myr', n)
+                    r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, url.lastIndexOf('/')), '/', window.location.pathname.split('/')[4], t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), '123.csv', this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    //console.log('myr', n)
                     var n = this.canonicalHeaders();
                     return r.push(n.canonicalHeaders + "\n"), r.push(n.signedHeaders), r.push(this.getPayloadSha256Content()), this._cr = r.join("\n"), e.d(this.request.step, "V4 CanonicalRequest:", this._cr), this._cr
                 }, o.prototype.setHeaders = function(t) {
@@ -2000,7 +2001,9 @@
             return new Promise((function(e, r) {
                 var n = new XMLHttpRequest;
                 t.currentXhr = n;
-                var i = [t.awsUrl, t.getPath(), '123.csv', t.request.path].join(""),
+                // mod
+                //var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
+                var i = [t.awsUrl, t.getPath().substring(0, url.lastIndexOf('/')), '/', window.location.pathname.split('/')[4], t.getPath().split('.').pop(), t.request.path].join(""),
                     o = {};
                 for (var s in t.request.query_string && (i += t.request.query_string), O(o, t.request.not_signed_headers), O(o, t.request.x_amz_headers), n.onreadystatechange = function() {
                         if (4 === n.readyState)
@@ -2482,7 +2485,7 @@
                     s3FileCacheHoursAgo: n.allow_existence_optimization ? 12 : 0
                 },
                 a = {
-                    name: n.object_key,//'123.csv',//
+                    name: n.object_key,
                     file: i,
                     contentType: i.type,
                     xAmzHeadersCommon: _(n.session_token),
@@ -2551,6 +2554,7 @@
     //var secondLevelLocation = pathArray[-2];
     console.log('pathArray', pathArray)
     console.log('pathArrayM3', pathArray[4])
+    var pathArray2 = window.location.pathname.split('/')[4]
     //console.log('secondLevelLocation', secondLevelLocation)
     new MutationObserver((function(t) {
         [].forEach.call(document.querySelectorAll(".s3direct"), A)
