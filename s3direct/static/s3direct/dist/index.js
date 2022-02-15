@@ -1957,14 +1957,14 @@
                     var r = [];
                     // mod
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
-                    /// r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '.', t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), '123.csv', this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     //console.log('myr', n)
                     // tests
-                    r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
-                    console.log('t1', t.getPath().substring(0, t.getPath().lastIndexOf('/')))
-                    console.log('t2', window.location.pathname.split('/')[4])
-                    console.log('t3', t.getPath().split('.').pop())
+                    //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    //console.log('t1', t.getPath().substring(0, t.getPath().lastIndexOf('/')))
+                    //console.log('t2', window.location.pathname.split('/')[4])
+                    //console.log('t3', t.getPath().split('.').pop())
                     var n = this.canonicalHeaders();
                     return r.push(n.canonicalHeaders + "\n"), r.push(n.signedHeaders), r.push(this.getPayloadSha256Content()), this._cr = r.join("\n"), e.d(this.request.step, "V4 CanonicalRequest:", this._cr), this._cr
                 }, o.prototype.setHeaders = function(t) {
@@ -2008,9 +2008,9 @@
                 t.currentXhr = n;
                 // mod
                 //var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
-                ///var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], t.getPath().split('.').pop(), t.request.path].join(""),
+                var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '.', t.getPath().split('.').pop(), t.request.path].join(""),
                 // tests
-                var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
+                //var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
                     o = {};
                 for (var s in t.request.query_string && (i += t.request.query_string), O(o, t.request.not_signed_headers), O(o, t.request.x_amz_headers), n.onreadystatechange = function() {
                         if (4 === n.readyState)
