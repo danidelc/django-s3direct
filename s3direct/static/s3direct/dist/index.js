@@ -1957,12 +1957,12 @@
                     var r = [];
                     // mod
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
-                    /// r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, url.lastIndexOf('/')), '/', window.location.pathname.split('/')[4], t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    /// r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), '123.csv', this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     //console.log('myr', n)
                     // tests
                     r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
-                    console.log('t1', t.getPath().substring(0, url.lastIndexOf('/')))
+                    console.log('t1', t.getPath().substring(0, t.getPath().lastIndexOf('/')))
                     console.log('t2', window.location.pathname.split('/')[4])
                     console.log('t3', t.getPath().split('.').pop())
                     var n = this.canonicalHeaders();
@@ -2008,7 +2008,7 @@
                 t.currentXhr = n;
                 // mod
                 //var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
-                ///var i = [t.awsUrl, t.getPath().substring(0, url.lastIndexOf('/')), '/', window.location.pathname.split('/')[4], t.getPath().split('.').pop(), t.request.path].join(""),
+                ///var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], t.getPath().split('.').pop(), t.request.path].join(""),
                 // tests
                 var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
                     o = {};
