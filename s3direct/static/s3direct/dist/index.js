@@ -2000,7 +2000,7 @@
             return new Promise((function(e, r) {
                 var n = new XMLHttpRequest;
                 t.currentXhr = n;
-                var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
+                var i = [t.awsUrl, t.getPath(), '123.csv', t.request.path].join(""),
                     o = {};
                 for (var s in t.request.query_string && (i += t.request.query_string), O(o, t.request.not_signed_headers), O(o, t.request.x_amz_headers), n.onreadystatechange = function() {
                         if (4 === n.readyState)
@@ -2546,6 +2546,7 @@
                 i = "" === e.value ? "form" : "link";
             t.className = "s3direct " + i + "-active", n.addEventListener("click", E, !1), r.addEventListener("change", P, !1)
         };
+    console.log('mykey', n)
     new MutationObserver((function(t) {
         [].forEach.call(document.querySelectorAll(".s3direct"), A)
     })).observe(document.body, {
