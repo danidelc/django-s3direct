@@ -1957,7 +1957,7 @@
                     var r = [];
                     // mod
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
-                    r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '.', t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/file.', t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), '123.csv', this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     //console.log('myr', n)
                     // tests
@@ -2008,7 +2008,7 @@
                 t.currentXhr = n;
                 // mod
                 //var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
-                var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '.', t.getPath().split('.').pop(), t.request.path].join(""),
+                var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/file.', t.getPath().split('.').pop(), t.request.path].join(""),
                 // tests
                 //var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
                     o = {};
@@ -2556,13 +2556,6 @@
                 i = "" === e.value ? "form" : "link";
             t.className = "s3direct " + i + "-active", n.addEventListener("click", E, !1), r.addEventListener("change", P, !1)
         };
-    console.log('mykey', n)
-    var pathArray = window.location.pathname.split('/')
-    //var secondLevelLocation = pathArray[-2];
-    console.log('pathArray', pathArray)
-    console.log('pathArrayM3', pathArray[4])
-    var pathArray2 = window.location.pathname.split('/')[4]
-    //console.log('secondLevelLocation', secondLevelLocation)
     new MutationObserver((function(t) {
         [].forEach.call(document.querySelectorAll(".s3direct"), A)
     })).observe(document.body, {
