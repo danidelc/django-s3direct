@@ -2152,6 +2152,8 @@
         }, E.prototype.success = function() {
             clearInterval(this.stalledInterval);
             var t = this.currentXhr.getResponseHeader("ETag");
+            // mod
+            document.getElementById("upetag").value = t;
             this.currentXhr = null, this.fileUpload.partSuccess(t, this) && this.awsDeferred.resolve(this.currentXhr)
         }, E.prototype.onProgress = function(t) {
             if (t.loaded > 0) {
