@@ -1957,7 +1957,13 @@
                     var r = [];
                     // mod
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
-                    r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/file.', t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    if (window.location.pathname.split('/')[5] === 'batchpredict'){
+                        myfilename = JSON.parse(document.getElementById('newbatchid').textContent);
+                        r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/batch/', myfilename, '.', t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    } else {
+                        var myfilename = 'file'
+                        r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/', myfilename, '.', t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    }
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), '123.csv', this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     //console.log('myr', n)
                     // tests
@@ -2008,7 +2014,14 @@
                 t.currentXhr = n;
                 // mod
                 //var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
-                var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/file.', t.getPath().split('.').pop(), t.request.path].join(""),
+                if (window.location.pathname.split('/')[5] === 'batchpredict'){
+                    myfilename = JSON.parse(document.getElementById('newbatchid').textContent);
+                    var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/batch/', myfilename, '.', t.getPath().split('.').pop(), t.request.path].join(""),
+                } else {
+                    var myfilename = 'file'
+                    var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/', myfilename, '.', t.getPath().split('.').pop(), t.request.path].join(""),
+                }
+                //var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/file.', t.getPath().split('.').pop(), t.request.path].join(""),
                 // tests
                 //var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
                     o = {};
@@ -2152,8 +2165,6 @@
         }, E.prototype.success = function() {
             clearInterval(this.stalledInterval);
             var t = this.currentXhr.getResponseHeader("ETag");
-            // mod
-            document.getElementById("upetag").value = t;
             this.currentXhr = null, this.fileUpload.partSuccess(t, this) && this.awsDeferred.resolve(this.currentXhr)
         }, E.prototype.onProgress = function(t) {
             if (t.loaded > 0) {
