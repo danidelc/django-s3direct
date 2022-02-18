@@ -1958,7 +1958,7 @@
                     // mod
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     if (window.location.pathname.split('/')[5] === 'batchpredict'){
-                        myfilename = JSON.parse(document.getElementById('newbatchid').textContent);
+                        myfilename = JSON.parse(document.getElementById('jnewbatchid').textContent);
                         r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/batch/', myfilename, '.', t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     } else {
                         var myfilename = 'file'
@@ -2015,7 +2015,7 @@
                 // mod
                 //var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
                 if (window.location.pathname.split('/')[5] === 'batchpredict'){
-                    myfilename = JSON.parse(document.getElementById('newbatchid').textContent);
+                    myfilename = JSON.parse(document.getElementById('jnewbatchid').textContent);
                     var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/batch/', myfilename, '.', t.getPath().split('.').pop(), t.request.path].join(""),
                 } else {
                     var myfilename = 'file'
