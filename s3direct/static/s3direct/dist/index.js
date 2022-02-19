@@ -3534,9 +3534,7 @@
                       t.awsUrl,
                       t.getPath().substring(0, t.getPath().lastIndexOf("/")),
                       "/",
-                      JSON.parse(
-                        document.getElementById("juploadid").textContent
-                      ),
+                      "123",
                       "/",
                       myfilename,
                       ".",
@@ -3633,7 +3631,7 @@
               t.awsUrl,
               t.getPath().substring(0, t.getPath().lastIndexOf("/")),
               "/",
-              JSON.parse(document.getElementById("juploadid").textContent),
+              "123",
               "/file.",
               t.getPath().split(".").pop(),
               t.request.path,
