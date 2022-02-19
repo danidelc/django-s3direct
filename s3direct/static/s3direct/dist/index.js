@@ -1957,7 +1957,7 @@
                     var r = [];
                     // mod
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/', myfilename, '.', t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
-                    r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', JSON.parse(document.getElementById('jnewbatchid').textContent), '/', myfilename, '.', t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
+                    r.push(this.request.method), r.push(B([t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', JSON.parse(document.getElementById('juploadid').textContent), '/', myfilename, '.', t.getPath().split('.').pop(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     //r.push(this.request.method), r.push(B([t.awsUrl, t.getPath(), this.request.path].join("")).pathname), r.push(this.canonicalQueryString() || "");
                     //console.log('hi1', window.location.pathname.split('/')[5])
                     //if (window.location.pathname.split('/')[5] === 'batchpredict') {
@@ -2018,7 +2018,7 @@
                 t.currentXhr = n;
                 // mod
                 // var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/', myfilename, '.', t.getPath().split('.').pop(), t.request.path].join(""),
-                var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', window.location.pathname.split('/')[4], '/', JSON.parse(document.getElementById('jnewbatchid').textContent), '.', t.getPath().split('.').pop(), t.request.path].join(""),
+                var i = [t.awsUrl, t.getPath().substring(0, t.getPath().lastIndexOf('/')), '/', JSON.parse(document.getElementById('juploadid').textContent), '/file.', t.getPath().split('.').pop(), t.request.path].join(""),
                 //var i = [t.awsUrl, t.getPath(), t.request.path].join(""),
                 //console.log('hi3', window.location.pathname.split('/')[5])
                 //if (window.location.pathname.split('/')[5] === 'batchpredict') {
